@@ -32,12 +32,18 @@
 		   <li class="nav-item">
 			   <a class="btn " href="#portfolio">Portfolio</a>
 		   </li>
-		   <li class="nav-item">
-			   <a class="btn " href="#contactme">Contact me</a>
-		   </li>
-		   <li class="nav-item">
-			   <a class="btn" href="#">My Blog</a>
-		   </li>
+		   {% if user.is_authenticated %}
+				   <li class="nav-item">
+				   	<a class="btn " href="{% url 'logout'%}">Logout</a>
+				   </li>
+		   {% else %}
+				   <li class="nav-item">
+					   <a class="btn " href="{% url 'login'%}">Login</a>
+				   </li>
+				   <li class="nav-item">
+					   <a class="btn" href="{% url 'register'%}">Register</a>
+				   </li>
+		   {% endif%}
 	   </ul>
    </nav>
    <!-- end navbar  -->
