@@ -20,7 +20,17 @@
 </head>
 <body>
 	{% include "websites/navbar.html" %}
-    {% block content %} <h1 class='text-center'>Welcome</h1> {%endblock%}
+
+	<div class="col-md-8">
+        {% if messages %}
+		{% for messages in messages %}
+		<div class="alert alert-{{ messages.tags }}">
+			{{ message }}
+		</div>
+		{% endfor%}
+	     {% endif %}
+	</div>
+    {% block content %} <h1 class='text-center'></h1> {%endblock%}
 
 	{% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
