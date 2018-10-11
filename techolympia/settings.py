@@ -131,3 +131,4 @@ STATICFILES_DIRS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 LOGIN_REDIRECT_URL  = 'welcome'
+LOGIN_URL = 'login'
