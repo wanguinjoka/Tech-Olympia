@@ -3,4 +3,18 @@
          {% block content %}
           {{block.super}}
        <h1>{{ user.username }}</h1>
+       <div class="container">
+       <div class="profile">
+           <div class="profile-image">
+               <img src="{{ user.profile.image.url }}" alt="" style="width:50%;height:50%;">
+           </div>
+           <div class="profile-user-settings">
+               <h1 class="profile-user-name">{{ user.username}}</h1>
+               <button class="btn profile-edit-btn">{{ user.email }}</button>
+           </div>
+           <div class="profile-bio">
+               <p><span class="profile-real-name">{{profile.name}}</span>{{user.profile.bio}}</p>
+           </div>
+       </div>
+   </div>
 {% endblock %}
