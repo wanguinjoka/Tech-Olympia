@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView,CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Site
 # Create your views here.
 def welcome(request):
@@ -16,6 +17,10 @@ class SiteListView(ListView):
 class SiteDetailView(DetailView):
     model = Site
 
-class SiteCreateView(CreateView):
+class SiteCreateView(LoginRequiredMixin, CreateView):
     model = Site
     fields = ['title','image','description','site_url']
+
+    def form_valid(self, form):
+        form.instance.developer = self.request.user
+        return super().form_valid(form)

@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     url(r'^profile/', user_views.profile, name = 'profile'),
     url(r'^logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-    url(r'',include('websites.urls')),
+    url(r'^',include('websites.urls')),
 ]
 
 if settings.DEBUG:

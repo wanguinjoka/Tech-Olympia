@@ -8,12 +8,13 @@
     <!--looping through photos -->
 	{% for site in sites %}
 	<div class="photo-container">
-      <img src="{{site.image.url}}" alt="Big Sur">
-      <h2><a href="{% url 'site-detail' site.id %}{{site.title}}"</a></h2>
-      <p>{{site.description}}</p>
+		<a href="{% url 'site-detail' site.id %}"><h2>{{site.title}}</h2></a>
+      <img src="{{ site.image.url }}" alt="Big Sur">
+
+	  <p>{{site.description}}</p>
 	  <img class="rounded-circle" src="{{site.developer.profile.image.url}}" alt="Big Sur">
 	  <span>{{site.developer}}</span>
-	  <p>{{site.site_url}}</p>
+	  <p><a href="{{site.site_url}}"</a>{{site.site_url}}</p>
 	  <small class="text-muted">{{site.date_posted | date:"F d, Y"}}</small>
     </div>
      {% endfor %}
