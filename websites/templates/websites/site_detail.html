@@ -1,0 +1,17 @@
+{%extends 'websites/base.html'%}
+
+{% block content %}
+{{block.super}}
+<div class="gallery">
+	<div class="photo-container">
+      <img src="{{object.image.url}}" alt="Big Sur">
+      <h2>{{object.title}}</h2>
+      <p>{{object.description}}</p>
+	  <img class="rounded-circle" src="{{site.developer.profile.image.url}}" alt="Big Sur">
+	  <span>{{object.developer}}</span>
+	  <p>{{object.site_url}}</p>
+	  <small class="text-muted">{{object.date_posted | date:"F d, Y"}}</small>
+    </div>
+     {% endfor %}
+
+{% endblock %}

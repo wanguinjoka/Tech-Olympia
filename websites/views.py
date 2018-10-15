@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView,CreateView
 from .models import Site
 # Create your views here.
 def welcome(request):
@@ -15,3 +15,7 @@ class SiteListView(ListView):
 
 class SiteDetailView(DetailView):
     model = Site
+
+class SiteCreateView(CreateView):
+    model = Site
+    fields = ['title','image','description','site_url']

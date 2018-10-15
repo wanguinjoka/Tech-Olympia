@@ -8,6 +8,7 @@ class Site(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='website_pics')
     description = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
+    site_url = models.CharField(max_length=100, blank=True)
     developer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
