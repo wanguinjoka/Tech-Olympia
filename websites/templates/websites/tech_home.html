@@ -2,4 +2,19 @@
 
 {% block content %}
 {{block.super}}
+<div class="gallery">
+
+    <!-- scale / rotate -->
+    <!--looping through photos -->
+	{% for site in sites %}
+	<div class="photo-container">
+      <img src="{{site.image.url}}" alt="Big Sur">
+      <h2><a href="{{site.title}}"</a></h2>
+      <p>{{site.description}}</p>
+	  <img class="rounded-circle" src="{{site.developer.profile.image.url}}" alt="Big Sur">
+	  <span>{{site.developer}}</span>
+	  <small class="text-muted">{{site.date_posted | date:"F d, Y"}}</small>
+    </div>
+     {% endfor %}
+
 {% endblock %}
